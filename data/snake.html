@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>test</title>
+</head>
+
+<body>
+    <button type="button" onclick="snake_left()">LEFT</button>
+    <button type="button" onclick="snake_right()">RIGHT</button>
+    <button type="button" onclick="snake_up()">UP</button>
+    <button type="button" onclick="snake_down()">DOWN</button>
+    <button type="button" onclick="snake_exit()">EXIT</button>
+
+    <script>
+        function snake_exit() {
+            const Http = new XMLHttpRequest();
+            const url = '/snakegame_exit';
+            Http.open("GET", url);
+            Http.send();
+        }
+
+        function snake_left() {
+            const Http = new XMLHttpRequest();
+            const url = '/snakegame_left';
+            Http.open("GET", url);
+            Http.send();
+        }
+
+        function snake_right() {
+            const Http = new XMLHttpRequest();
+            const url = '/snakegame_right';
+            Http.open("GET", url);
+            Http.send();
+        }
+
+        function snake_up() {
+            const Http = new XMLHttpRequest();
+            const url = '/snakegame_up';
+            Http.open("GET", url);
+            Http.send();
+        }
+
+        function snake_down() {
+            const Http = new XMLHttpRequest();
+            const url = '/snakegame_down';
+            Http.open("GET", url);
+            Http.send();
+        }
+    </script>
+</body>
+
+</html>

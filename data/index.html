@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+    <title>ConfigManager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="switch demo1">
+            <input type="checkbox" id="displayStatus" onclick="displaySwitch()" name="switch">
+            <label></label>
+        </div>
+        <form method="post" action="/settings">
+            <form>
+
+                <button class="accordion">WiFi settings</button>
+                <div class="panel">
+                    <label class="form__label">SSID</label>
+                    <input type="text" name="ssid" class="form__field" />
+                    <label class="form__label">Password</label>
+                    <input type="text" name="pass" class="form__field" />
+                </div>
+                <button class="accordion">Display settings</button>
+                <div class="panel">
+                    <label class="form__label">Brightness</label>
+                    <input name="brightness" type="range" min="1" max="255" data-type="number" class="slider" />
+                    <label class="form__label">USD/HUF</label>
+                    <input type="text" name="usdhuf" class="form__field" disabled />
+                    <label class="form__label">Line 1</label>
+                    <select name="line1">
+                        <option value="0">ADA</option>
+                        <option value="1">ATOM</option>
+                        <option value="2">BCH</option>
+                        <option value="3">BTC</option>
+                        <option value="4">ETC</option>
+                        <option value="5">ETH</option>
+                        <option value="6">LTC</option>
+                        <option value="7">MKR</option>
+                        <option value="8">XTZ</option>
+                        <option value="9">ZRX</option>
+                        <option value="10">User 1 portfolio (USD)</option>
+                        <option value="11">User 1 portfolio (HUF)</option>
+                        <option value="12">User 2 portfolio (USD)</option>
+                        <option value="13">User 2 portfolio (HUF)</option>
+                    </select>
+                    <label class="form__label">Line 2</label>
+                    <select name="line2">
+                        <option value="0">ADA</option>
+                        <option value="1">ATOM</option>
+                        <option value="2">BCH</option>
+                        <option value="3">BTC</option>
+                        <option value="4">ETC</option>
+                        <option value="5">ETH</option>
+                        <option value="6">LTC</option>
+                        <option value="7">MKR</option>
+                        <option value="8">XTZ</option>
+                        <option value="9">ZRX</option>
+                        <option value="10">User 1 portfolio (USD)</option>
+                        <option value="11">User 1 portfolio (HUF)</option>
+                        <option value="12">User 2 portfolio (USD)</option>
+                        <option value="13">User 2 portfolio (HUF)</option>
+                    </select>
+                    <label class="form__label">Line 3</label>
+                    <select name="line3">
+                        <option value="0">ADA</option>
+                        <option value="1">ATOM</option>
+                        <option value="2">BCH</option>
+                        <option value="3">BTC</option>
+                        <option value="4">ETC</option>
+                        <option value="5">ETH</option>
+                        <option value="6">LTC</option>
+                        <option value="7">MKR</option>
+                        <option value="8">XTZ</option>
+                        <option value="9">ZRX</option>
+                        <option value="10">User 1 portfolio (USD)</option>
+                        <option value="11">User 1 portfolio (HUF)</option>
+                        <option value="12">User 2 portfolio (USD)</option>
+                        <option value="13">User 2 portfolio (HUF)</option>
+                    </select>
+                    <label class="form__label">Line 4</label>
+                    <select name="line4">
+                        <option value="0">ADA</option>
+                        <option value="1">ATOM</option>
+                        <option value="2">BCH</option>
+                        <option value="3">BTC</option>
+                        <option value="4">ETC</option>
+                        <option value="5">ETH</option>
+                        <option value="6">LTC</option>
+                        <option value="7">MKR</option>
+                        <option value="8">XTZ</option>
+                        <option value="9">ZRX</option>
+                        <option value="10">User 1 portfolio (USD)</option>
+                        <option value="11">User 1 portfolio (HUF)</option>
+                        <option value="12">User 2 portfolio (USD)</option>
+                        <option value="13">User 2 portfolio (HUF)</option>
+                    </select>
+
+                    <label class="form__label">Display mode</label>
+                    <select name="mode" disabled>
+                        <option value="0">4 line</option>
+                        <option value="1">Page</option>
+                    </select>
+
+                    <label class="form__label">Cycle</label>
+                    <select name="cycle" disabled>
+                        <option value="0">Off</option>
+                        <option value="1">On</option>
+                    </select>
+                </div>
+                <button class="accordion">User 1</button>
+                <div class="panel">
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1ada" class="form__field" id="align-right" />
+                        <label class="form__label">ADA</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1atom" class="form__field" id="align-right" />
+                        <label class="form__label">ATM</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1bch" class="form__field" id="align-right" />
+                        <label class="form__label">BCH</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1btc" class="form__field" id="align-right" />
+                        <label class="form__label">BTC</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1etc" class="form__field" id="align-right" />
+                        <label class="form__label">ETC</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1eth" class="form__field" id="align-right" />
+                        <label class="form__label">ETH</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1ltc" class="form__field" id="align-right" />
+                        <label class="form__label">LTC</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1mkr" class="form__field" id="align-right" />
+                        <label class="form__label">MKR</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1xtz" class="form__field" id="align-right" />
+                        <label class="form__label">XTZ</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user1zrx" class="form__field" id="align-right" />
+                        <label class="form__label">ZRX</label>
+                    </div>
+                </div>
+                <button class="accordion">User 2</button>
+                <div class="panel">
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2ada" class="form__field" id="align-right" />
+                        <label class="form__label">ADA</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2atom" class="form__field" id="align-right" />
+                        <label class="form__label">ATM</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2bch" class="form__field" id="align-right" />
+                        <label class="form__label">BCH</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2btc" class="form__field" id="align-right" />
+                        <label class="form__label">BTC</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2etc" class="form__field" id="align-right" />
+                        <label class="form__label">ETC</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2eth" class="form__field" id="align-right" />
+                        <label class="form__label">ETH</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2ltc" class="form__field" id="align-right" />
+                        <label class="form__label">LTC</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2mkr" class="form__field" id="align-right" />
+                        <label class="form__label">MKR</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2xtz" class="form__field" id="align-right" />
+                        <label class="form__label">XTZ</label>
+                    </div>
+                    <div class="inline-label">
+                        <input type="number" step="0.00000001" name="user2zrx" class="form__field" id="align-right" />
+                        <label class="form__label">ZRX</label>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="save">Save</button>
+                    <button type="submit" class="save" onclick="restart()">Restart</button>
+                </div>
+            </form>
+        </form>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+
+        var gjson;
+        gjson = getJSON('/getstatus');
+        var obj = JSON.parse(gjson);
+
+        if (obj.status === "on") {
+            document.getElementById("displayStatus").checked = true;
+        } else {
+            document.getElementById("displayStatus").checked = false;
+        }
+
+    })
+
+    function turnOn() {
+        const Http = new XMLHttpRequest();
+        const url = '/on';
+        Http.open("GET", url);
+        Http.send();
+    }
+
+    function turnOff() {
+        const Http = new XMLHttpRequest();
+        const url = '/off';
+        Http.open("GET", url);
+        Http.send();
+    }
+
+    function restart() {
+        const Http = new XMLHttpRequest();
+        const url = '/restart';
+        Http.open("GET", url);
+        Http.send();
+    }
+
+    function displaySwitch() {
+        if (document.getElementById("displayStatus").checked == true) {
+            turnOn();
+        } else {
+            turnOff();
+        }
+    }
+
+    function getJSON(url) {
+        var resp;
+        var xmlHttp;
+
+        resp = '';
+        xmlHttp = new XMLHttpRequest();
+
+        if (xmlHttp != null) {
+            xmlHttp.open("GET", url, false);
+            xmlHttp.send(null);
+            resp = xmlHttp.responseText;
+        }
+
+        return resp;
+    }
+
+    $.getJSON('/getconfig', function (json) {
+        for (hinyje in json) {
+            for (key in json[hinyje]) {
+                console.log(json[hinyje][key]);
+                $('[name=' + key + ']').val(json[hinyje][key]);
+            }
+        }
+
+        for (cica in json["portfolio"]) {
+            for (kutya in json["portfolio"][cica]) {
+                console.log(json["portfolio"][cica][kutya]);
+                $('[name=' + cica + kutya + ']').val(json["portfolio"][cica][kutya]);
+            }
+        }
+    });
+
+    $('form').on('submit', function (e) {
+        var configJSON = {
+            "wifi": {
+                "ssid": $("input[name=ssid]").val(),
+                "pass": $("input[name=pass]").val()
+            },
+            "settings": {
+                "brightness": $("input[name=brightness]").val(),
+                "usdhuf": $("input[name=usdhuf]").val()
+            },
+            "display": {
+                "line1": $("[name=line1]").val(),
+                "line2": $("[name=line2]").val(),
+                "line3": $("[name=line3]").val(),
+                "line4": $("[name=line4]").val(),
+                "mode": $("[name=mode]").val(),
+                "cycle": $("[name=cycle]").val(),
+            },
+            "portfolio": {
+                "user1": {
+                    "ada": $("input[name=user1ada]").val(),
+                    "atom": $("input[name=user1atom]").val(),
+                    "bch": $("input[name=user1bch]").val(),
+                    "btc": $("input[name=user1btc]").val(),
+                    "etc": $("input[name=user1etc]").val(),
+                    "eth": $("input[name=user1eth]").val(),
+                    "ltc": $("input[name=user1ltc]").val(),
+                    "mkr": $("input[name=user1mkr]").val(),
+                    "xtz": $("input[name=user1xtz]").val(),
+                    "zrx": $("input[name=user1zrx]").val()
+                },
+                "user2": {
+                    "ada": $("input[name=user2ada]").val(),
+                    "atom": $("input[name=user2atom]").val(),
+                    "bch": $("input[name=user2bch]").val(),
+                    "btc": $("input[name=user2btc]").val(),
+                    "etc": $("input[name=user2etc]").val(),
+                    "eth": $("input[name=user2eth]").val(),
+                    "ltc": $("input[name=user2ltc]").val(),
+                    "mkr": $("input[name=user2mkr]").val(),
+                    "xtz": $("input[name=user2xtz]").val(),
+                    "zrx": $("input[name=user2zrx]").val()
+                }
+            }
+        }
+        $.ajax({
+            url: '/',
+            type: 'POST',
+            data: JSON.stringify(configJSON),
+            contentType: 'application/json',
+            success: function (data) {
+                console.log("fasza");
+            }
+        });
+
+        return false;
+    });
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function () {
+            this.classList.toggle("active");
+            this.nextElementSibling.classList.toggle("show");
+        }
+    }
+</script>
+
+</html>

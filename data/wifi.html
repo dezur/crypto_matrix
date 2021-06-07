@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>test</title>
+</head>
+
+<body>
+    <form method="post" id="wifi">
+        <input id='ssid' value='WiFi'>
+        <input id='pass' value='barishbarish5'>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        const contactForm = document.getElementById("wifi");
+
+        contactForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+            var request = new XMLHttpRequest();
+            var url = "/wifi";
+            request.open("POST", url, true);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200) {
+                    var jsonData = JSON.parse(request.response);
+                    console.log(jsonData);
+                }
+            };
+            var ssid =  document.getElementById("ssid").value;
+            var pass = document.getElementById("pass").value;
+
+
+            var data = JSON.stringify({"wifi": {"ssid": ssid, "pass": pass}});
+            console.log(data);
+
+            request.send(data);
+
+        });  
+    </script>
+</body>
+</html>

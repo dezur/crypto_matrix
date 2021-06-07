@@ -1,0 +1,45 @@
+{
+    "wifi": {
+        "ssid": "WiFi",
+        "pass": "barishbarish5"
+    },
+    "settings": {
+        "brightness": 50,
+        "usdhuf": 286.6402588
+    },
+    "display": {
+        "line1": 3,
+        "line2": 5,
+        "line3": 11,
+        "line4": 13,
+        "mode": 0,
+        "cycle": 0,
+        "lastpage": 0
+    },
+    "portfolio": {
+        "user1": {
+            "ada": 0,
+            "atom": 0,
+            "bch": 0,
+            "btc": 0,
+            "etc": 0,
+            "eth": 0,
+            "ltc": 0,
+            "mkr": 0,
+            "xtz": 0,
+            "zrx": 0
+        },
+        "user2": {
+            "ada": 0,
+            "atom": 0,
+            "bch": 0,
+            "btc": 0,
+            "etc": 0,
+            "eth": 0,
+            "ltc": 0,
+            "mkr": 0,
+            "xtz": 0,
+            "zrx": 0
+        }
+    }
+}
